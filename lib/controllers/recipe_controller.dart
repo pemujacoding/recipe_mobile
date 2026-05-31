@@ -4,10 +4,8 @@ import '../services/api_service.dart';
 
 class RecipeController extends GetxController {
   var isLoading = true.obs;
-  var allRecipes =
-      <Recipe>[].obs; // Berfungsi sebagai backup data asli dari API
-  var recipeList =
-      <Recipe>[].obs; // Berfungsi sebagai data dinamis yang tampil di UI
+  var allRecipes = <Recipe>[].obs;
+  var recipeList = <Recipe>[].obs;
 
   @override
   void onInit() {
@@ -20,9 +18,8 @@ class RecipeController extends GetxController {
       isLoading(true);
       var recipes = await ApiService.fetchRecipes();
 
-      //  PENTING: Isi keduanya di sini
-      allRecipes.assignAll(recipes); // Simpan master data resep ke backup
-      recipeList.assignAll(recipes); // Tampilkan juga ke UI untuk pertama kali
+      allRecipes.assignAll(recipes);
+      recipeList.assignAll(recipes);
     } catch (e) {
       Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM);
     } finally {
@@ -32,10 +29,8 @@ class RecipeController extends GetxController {
 
   void filterRecipes(String query) {
     if (query.isEmpty) {
-      // Jika kolom pencarian kosong, kembalikan data dari backup asli
       recipeList.assignAll(allRecipes);
     } else {
-      // Lakukan pencarian dari allRecipes (master data) agar pencarian selalu akurat
       recipeList.assignAll(
         allRecipes
             .where(

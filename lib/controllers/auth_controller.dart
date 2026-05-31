@@ -41,7 +41,7 @@ class AuthController extends GetxController {
         currentUsername.value = userData['username'];
 
         Get.snackbar(
-          "Succeed",
+          "Success",
           "Login succeed! Welcome ${currentUsername.value}",
           snackPosition: SnackPosition.BOTTOM,
         );

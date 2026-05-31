@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'ai_recomendation_view.dart';
 import 'detail_view.dart';
 import '../controllers/recipe_controller.dart';
 import '../controllers/auth_controller.dart';
@@ -15,9 +16,15 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "My Recipe",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        title: Row(
+          children: [
+            const Icon(Icons.restaurant),
+            const SizedBox(width: 6),
+            const Text(
+              "My Recipe",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
         ),
         centerTitle: true,
         backgroundColor: Colors.deepOrangeAccent,
@@ -44,6 +51,50 @@ class HomeView extends StatelessWidget {
                 ),
               );
             }),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: 8,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              height: 55,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.deepOrangeAccent,
+                  foregroundColor: Colors.white,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AiRecommendationView(),
+                    ),
+                  );
+                },
+                child: Row(
+                  children: [
+                    const Icon(Icons.auto_awesome),
+                    const SizedBox(width: 4),
+                    const Text(
+                      'AI meal reccomendation',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
 
           Padding(

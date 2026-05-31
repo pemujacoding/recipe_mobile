@@ -28,7 +28,7 @@ class BookmarkController extends GetxController {
           .toList();
       bookmarkedRecipes.assignAll(recipes);
     } catch (e) {
-      Get.snackbar("Error", "Gagal memuat bookmark: $e");
+      Get.snackbar("Error", "Failed to load bookmark: $e");
     } finally {
       isLoading(false);
     }
@@ -46,7 +46,7 @@ class BookmarkController extends GetxController {
 
       Get.snackbar(
         "Bookmark",
-        "${recipe.name} dihapus dari favorit",
+        "${recipe.name} removed from bookmark",
         snackPosition: SnackPosition.BOTTOM,
       );
     } else {
@@ -59,7 +59,7 @@ class BookmarkController extends GetxController {
 
       Get.snackbar(
         "Bookmark",
-        "${recipe.name} berhasil disimpan!",
+        "${recipe.name} added to bookmark!",
         snackPosition: SnackPosition.BOTTOM,
       );
     }

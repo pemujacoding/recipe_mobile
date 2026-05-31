@@ -134,7 +134,10 @@ class LoginView extends StatelessWidget {
                     ),
                     Text(
                       " Sign here",
-                      style: TextStyle(color: Colors.deepOrangeAccent),
+                      style: TextStyle(
+                        color: Colors.deepOrangeAccent,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),

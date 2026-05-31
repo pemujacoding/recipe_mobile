@@ -53,8 +53,8 @@ class BookmarkView extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 const Text(
-                  "Belum ada resep yang disimpan",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  "No recipe bookmarked yet",
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
               ],
             ),
